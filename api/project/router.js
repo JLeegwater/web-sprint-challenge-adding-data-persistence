@@ -15,13 +15,13 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const newProject = await Projects.addProject(req.body);
-    const output = {
+    const project = {
       project_id: newProject.project_id,
       project_name: newProject.project_name,
       project_description: newProject.project_description,
       project_completed: newProject.project_completed,
     };
-    res.status(201).json(output);
+    res.status(201).json(project);
   } catch (err) {
     next(err);
   }

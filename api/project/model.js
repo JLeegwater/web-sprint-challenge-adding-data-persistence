@@ -15,7 +15,7 @@ async function addProject(project) {
   const Project = await getById(newProject);
   return {
     ...Project[0],
-    project_completed: Project[0].project_completed ? true : false,
+    project_completed: !!Project[0].project_completed,
   };
 }
 
